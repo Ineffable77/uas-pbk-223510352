@@ -1,10 +1,12 @@
+// router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
-import WeatherWidget from '../components/WeatherWidget.vue'; 
+import WeatherWidget from '../components/WeatherWidget.vue';
+
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/weather', component: WeatherWidget },
+  { path: '/', name: 'Home', component: Home },
+  { path: '/weather', name: 'WeatherWidget', component: WeatherWidget },
 
 ];
 

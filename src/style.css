@@ -1,33 +1,33 @@
 body {
-  background-image: url(./assets/awal.webp);
+  background-image: url(./assets/start.png);
   background-repeat: no-repeat;
   background-size: cover;
   transition: background-color 0.5s ease;
 }
 
 .cold-weather {
-  background-image: url(./assets/hujan.jpg);
+  background-image: url(./assets/panam.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   transition: background-color 0.5s ease;
 }
 
 .cool-weather {
-  background-image: url(./assets/hujan1.jpg);
+  background-image: url(./assets/enakTidur.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   transition: background-color 0.5s ease;
 }
 
 .warm-weather {
- background-image: url(./assets/berawan.jpg);
+ background-image: url(./assets/muncak.jpg);
  background-repeat: no-repeat;
  background-size: cover;
  transition: background-color 0.5s ease;
 }
 
 .hot-weather {
-  background-image: url(./assets/panas.jpg);
+  background-image: url(./assets/neraka.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   transition: background-color 0.5s ease;

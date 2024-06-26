@@ -12,13 +12,16 @@
             dense
             class="q-mb-md"
           />
-          <q-btn type="submit" label="Search" color="positive" />
+          <q-btn type="submit" label="Search" color="positive" class="search-btn" />
         </q-form>
       </q-card-section>
       <q-card-section class="barudak" v-if="weather">
-        <p>Location: {{ weather.name }}</p>
-        <p>Temperature: {{ weather.main.temp }} °C</p>
-        <p>Weather: {{ weather.weather[0].description }}</p>
+        <div class="weather-info">
+          <p>Location: <span class="highlight">{{ weather.name }}</span></p>
+          <p>Temperature: <span class="highlight">{{ weather.main.temp }} °C</span></p>
+          <p>Weather: <span class="highlight">{{ weather.weather[0].description }}</span></p>
+          <img :src="getIconUrl(weather.weather[0].icon)" alt="Weather icon" class="weather-icon" />
+        </div>
       </q-card-section>
       <q-card-section v-else>
         <p>Loading...</p>
@@ -67,6 +70,9 @@ export default {
       } else {
         body.classList.add('hot-weather');
       }
+    },
+    getIconUrl(iconCode) {
+      return `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
     }
   },
   mounted() {
@@ -77,13 +83,10 @@ export default {
 
 <style scoped>
 body {
-  background-image: url(./assets/awal.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  transition: background-color 0.5s ease;
+  background-color: #f0f0f0;
 }
 
-.barudak{
+.barudak {
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -97,8 +100,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* For Safari */
   z-index: -1; /* Ensure it is behind other elements */
 }
 
@@ -112,29 +115,31 @@ body {
   border: 1px solid #ccc;
   border-radius: 20px;
   color: white;
-  padding: 2rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
   width: 100%;
   max-width: 400px;
   margin: 4rem auto;
-  background: none;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
-  opacity: 0.7; 
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); 
+  opacity: 0.85; 
+  margin-bottom: 2px;
 }
 
 .weather-widget * {
   position: relative;
   z-index: 1; 
 }
-.judul{
-  color: #000000;
+
+.judul {
+  color: #ffce00;
   font-weight: 750;
+  font-size: 1.5em;
 }
+
 h1 {
-  font-size: 24px;
+  font-size: 28px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 form {
@@ -158,7 +163,22 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+.search-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #ffce00;
+}
+
+.weather-info {
+  text-align: center;
+}
+
+.weather-icon {
+  width: 100px;
+  height: 100px;
 }
 </style>
